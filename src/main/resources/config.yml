@@ -1,0 +1,78 @@
+#  ███╗   ███╗███████╗██████╗  ██████╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ ██████╗ ██╗   ██╗██╗██╗     ██████╗
+#  ████╗ ████║██╔════╝██╔══██╗██╔════╝██║  ██║██╔══██╗████╗  ██║╚══██╔══╝██╔════╝ ██║   ██║██║██║     ██╔══██╗
+#  ██╔████╔██║█████╗  ██████╔╝██║     ███████║███████║██╔██╗ ██║   ██║   ██║  ███╗██║   ██║██║██║     ██║  ██║
+#  ██║╚██╔╝██║██╔══╝  ██╔══██╗██║     ██╔══██║██╔══██║██║╚██╗██║   ██║   ██║   ██║██║   ██║██║██║     ██║  ██║
+#  ██║ ╚═╝ ██║███████╗██║  ██║╚██████╗██║  ██║██║  ██║██║ ╚████║   ██║   ╚██████╔╝╚██████╔╝██║███████╗██████╔╝
+#  ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝
+# author: k4han
+# version: 1.0
+language: en
+
+shop:
+  refresh_interval: 120  # Rotation time (in minute, 120 minutes = 2 hours)
+  max_items: 14  # Maximum number of items per random ( MAX 14 )
+  duplicates: False # Allow duplicate items or not
+  allowed-worlds:
+    - world
+    - world_nether
+    - world_the_end
+# Can use ALL_ to get all items of a type
+# example: orange_concrete, white_concrete => ALL_CONCRETE
+# Can use amount: 1-16 to randomize the amount of items
+# Can use enchants to add enchantments
+# example:
+# enchants:
+#   SHARPNESS: 3
+#   UNBREAKING: 2
+
+items:
+  ALL_SWORD:
+    amount: 1
+    price: 2
+    enchants:
+      SHARPNESS: 3
+      UNBREAKING: 2
+  BOOK:
+    amount: 1-16
+    price: 0.2
+  GOLDEN_APPLE:
+    amount: 1-8
+    price: 2
+  DIAMOND_SWORD:
+    amount: 10
+    price: 1
+    enchants:
+      SHARPNESS: 3
+  ALL_CONCRETE:
+    amount: 16-48
+    price: 0.125
+  ALL_WOOL:
+    amount: 16-48
+    price: 0.1
+  ALL_STAINED_GLASS:
+    amount: 16-48
+    price: 0.125
+  ALL_LOG:
+    amount: 16-48
+    price: 0.1
+  ALL_STAIRS:
+    amount: 16-48
+    price: 0.1
+  ALL_WALL:
+    amount: 16-48
+    price: 0.1
+  ALL_SLAB:
+    amount: 16-48
+    price: 0.03
+  ALL_FENCE:
+    amount: 16-48
+    price: 0.1
+  ALL_SLAPLING:
+    amount: 1-16
+    price: 0.1
+  ALL_BED:
+    amount: 1-16
+    price: 0.33
+  ALL_SIGN:
+    amount: 1-16
+    price: 0.125

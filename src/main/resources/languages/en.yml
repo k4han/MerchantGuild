@@ -1,0 +1,16 @@
+
+sell_success: "§aYou sold §e%d §aitems for §e%.2f$"
+sell_error: "§cThe shop can't buy that many items!"
+no_item: "§cYou don't have this item!"
+shop_cant_buy: "§cThe shop can't buy that many items!"
+merchant_reload: "§aThe shop has been updated, open the shop using §e/merchant"
+
+#
+button_exit: "§cExit"
+button_sell: "§aSell"
+button_add: "§aAdd"
+button_minus: "§cMinus"
+button_confirm: "§aConfirm"
+button_cancel: "§cCancel"
+sell_amount: "§aAmount: §e%d"
+sell_price: "§aPrice: §e%.2f$"

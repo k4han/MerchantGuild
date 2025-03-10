@@ -1,0 +1,21 @@
+name: MerchantGuild
+version: '1.0-SNAPSHOT'
+main: com.virusker.merchantGuild.MerchantGuild
+api-version: '1.21'
+depend:
+  - Vault
+
+commands:
+  merchant:
+    description: "Open MerchantGuild"
+    usage: "/merchant [help|reload|refresh]"
+    aliases: [mg, mguild]
+    permission: merchant.use
+
+permissions:
+  merchant.use:
+    description: "Allow to use MerchantGuild"
+    default: true
+  merchant.admin:
+    description: "Allow to use admin command"
+    default: op

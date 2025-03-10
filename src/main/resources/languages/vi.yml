@@ -1,0 +1,15 @@
+
+sell_success: "§aBạn đã bán §e%d §avật phẩm với giá §e%.2f$"
+sell_error: "§cCửa hàng không thể mua nhiều vật phẩm như vậy!"
+no_item: "§cBạn không có vật phẩm này!"
+shop_cant_buy: "§cCửa hàng không thể mua nhiều vật phẩm như vậy!"
+merchant_reload: "§aCửa hàng đã được làm mới tại §e/merchant"
+
+button_exit: "§cThoát"
+button_sell: "§aBán"
+button_add: "§aThêm"
+button_minus: "§cGiảm"
+button_confirm: "§aXác nhận"
+button_cancel: "§cHủy"
+sell_amount: "§aSố lượng: §e%d"
+sell_price: "§aGiá: §e%.2f$"
