@@ -32,6 +32,9 @@ items:
     enchants:
       SHARPNESS: 3
       UNBREAKING: 2
+  COOKED_ALL:
+    amount: 16-48
+    price: 0.1
   BOOK:
     amount: 1-16
     price: 0.2

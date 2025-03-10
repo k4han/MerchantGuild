@@ -34,9 +34,9 @@ public class ConfigManager {
         this.maxItems = Math.min(plugin.getConfig().getInt("shop.max_items"), 14);
         this.duplicates = plugin.getConfig().getBoolean("shop.duplicates");
         this.configItems = plugin.getConfig().getConfigurationSection("items");
-        this.allowWorlds = plugin.getConfig().getStringList("shop.allow_worlds");
+        this.allowWorlds = plugin.getConfig().getStringList("shop.allowed-worlds");
         this.numRowItem = (int) Math.ceil((double) maxItems / 7);
-        this.refreshTime = plugin.getConfig().getLong("shop.refresh_time");
+        this.refreshTime = plugin.getConfig().getLong("shop.refresh_interval");
         this.allShopItems = loadItemInConfig();
         this.ShopItems = getRandItems();
         this.langManager = new LangManager(plugin);
@@ -111,6 +111,17 @@ public class ConfigManager {
                         if (material.isLegacy() || !material.isItem()) continue;
 
                         if (material.name().endsWith(prefix)) { // filter by prefix
+                            addItemToList(items, material, amount, amountStr, itemConfig);
+                        }
+                    }
+                } else if (key.endsWith("_ALL")) {
+                    // get suffix, for example: "Cooked_Mutton" from "COOKED_ALL"
+                    String suffix = key.substring(0, key.length() - 4).toUpperCase();
+
+                    for (Material material : Material.values()) {
+                        if (material.isLegacy() || !material.isItem()) continue;
+
+                        if (material.name().startsWith(suffix)) { // filter by suffix
                             addItemToList(items, material, amount, amountStr, itemConfig);
                         }
                     }
