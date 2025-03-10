@@ -3,6 +3,7 @@ package com.virusker.merchantGuild;
 import com.virusker.merchantGuild.Listener.ShopEvent;
 import com.virusker.merchantGuild.command.MerchantCommand;
 import com.virusker.merchantGuild.config.ConfigManager;
+import com.virusker.merchantGuild.metrics.Metrics;
 import com.virusker.merchantGuild.task.RunnableTask;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -15,6 +16,8 @@ public final class MerchantGuild extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        int pluginId = 25056;
+
         saveDefaultConfig();
         ConfigManager configManager = new ConfigManager(this);
 
@@ -31,6 +34,8 @@ public final class MerchantGuild extends JavaPlugin {
 
         startTask(configManager);
         getLogger().info("MerchantGuild is enabled!");
+
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     @Override
