@@ -28,6 +28,7 @@ public class ConfigManager {
 
     public ConfigManager(MerchantGuild plugin) {
         ConfigManager.plugin = plugin;
+        this.langManager = new LangManager(plugin);
         loadConfig();
     }
     public void loadConfig() {
@@ -39,10 +40,10 @@ public class ConfigManager {
         this.refreshTime = plugin.getConfig().getLong("shop.refresh_interval");
         this.allShopItems = loadItemInConfig();
         this.ShopItems = getRandItems();
-        this.langManager = new LangManager(plugin);
     }
     public void reloadConfig() {
         plugin.reloadConfig();
+        this.langManager.reload();
         loadConfig();
         plugin.startTask(this);
     }

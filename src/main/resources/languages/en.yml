@@ -6,6 +6,8 @@ shop_cant_buy: "§cThe shop can't buy that many items!"
 merchant_reload: "§aThe shop has been updated, open the shop using §e/merchant"
 
 #
+gui_title: "Merchant Guild"
+
 button_exit: "§cExit"
 button_sell: "§aSell"
 button_add: "§aAdd"
@@ -14,3 +16,12 @@ button_confirm: "§aConfirm"
 button_cancel: "§cCancel"
 sell_amount: "§aAmount: §e%d"
 sell_price: "§aPrice: §e%.2f$"
+
+cmd_console_blocked: "Console cannot use this command."
+cmd_no_permission: "You don't have permission to use this command!"
+cmd_world_blocked: "You cannot use this command in this world!"
+cmd_help: "Not help!"
+cmd_refresh_ok: "Merchant Shop has been refreshed!"
+cmd_reload_ok: "Config has been reloaded!"
+cmd_unknown: "Unknown command. Use /merchant help for commands."
+cmd_usage: "Invalid command usage. Use /merchant help for commands."

@@ -4,11 +4,11 @@ public enum Message {
 
     SELL_SUCCESS("sell_success"),
     NO_ITEM("no_item"),
-    // §cThe shop can't buy that many items!
     SHOP_CANT_BUY("shop_cant_buy"),
-    // §aMerchant wants to buy some items at §e/merchant
     MERCHANT_RELOAD("merchant_reload"),
     SELL_ERROR("sell_error"),
+
+    GUI_TITLE("gui_title"),
 
     BUTTON_EXIT("button_exit"),
     BUTTON_SELL("button_sell"),
@@ -17,7 +17,16 @@ public enum Message {
     BUTTON_CONFIRM("button_confirm"),
     BUTTON_CANCEL("button_cancel"),
     SELL_PRICE("sell_price"),
-    SELL_AMOUNT("sell_amount");
+    SELL_AMOUNT("sell_amount"),
+
+    CMD_CONSOLE_BLOCKED("cmd_console_blocked"),
+    CMD_NO_PERMISSION("cmd_no_permission"),
+    CMD_WORLD_BLOCKED("cmd_world_blocked"),
+    CMD_HELP("cmd_help"),
+    CMD_REFRESH_OK("cmd_refresh_ok"),
+    CMD_RELOAD_OK("cmd_reload_ok"),
+    CMD_UNKNOWN("cmd_unknown"),
+    CMD_USAGE("cmd_usage");
 
     private final String key;
 

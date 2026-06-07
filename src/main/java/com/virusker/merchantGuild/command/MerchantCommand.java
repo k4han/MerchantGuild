@@ -2,6 +2,8 @@ package com.virusker.merchantGuild.command;
 
 import com.virusker.merchantGuild.config.ConfigManager;
 import com.virusker.merchantGuild.guis.ShopGui;
+import com.virusker.merchantGuild.language.LangManager;
+import com.virusker.merchantGuild.language.Message;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -13,28 +15,28 @@ import java.util.List;
 
 public class MerchantCommand  implements TabExecutor {
 
-    private ConfigManager config;
+    private final ConfigManager config;
+    private final LangManager lang;
     public MerchantCommand(ConfigManager config) {
         this.config = config;
+        this.lang = config.getLangManager();
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length == 0) {
             if (!(sender instanceof Player player)) {
-                sender.sendMessage("Console cannot use this command.");
+                sender.sendMessage(lang.get(Message.CMD_CONSOLE_BLOCKED));
                 return false;
             }
-//            Player player = (Player) sender;
 
             if (!player.hasPermission("merchant.use")) {
-                player.sendMessage("You don't have permission to use this command!");
+                player.sendMessage(lang.get(Message.CMD_NO_PERMISSION));
                 return true;
             }
 
-            // Kiểm tra nếu thế giới hiện tại không nằm trong danh sách
             if (!config.getAllowWorlds().contains(player.getWorld().getName())) {
-                player.sendMessage("You cannot use this command in this world!");
+                player.sendMessage(lang.get(Message.CMD_WORLD_BLOCKED));
                 return true;
             }
 
@@ -45,31 +47,31 @@ public class MerchantCommand  implements TabExecutor {
 
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("help")) {
-                sender.sendMessage("Not help!");
+                sender.sendMessage(lang.get(Message.CMD_HELP));
                 return true;
             }
 
             if (args[0].equalsIgnoreCase("refresh") || args[0].equalsIgnoreCase("reload")) {
                 if (!sender.hasPermission("merchant.admin")) {
-                    sender.sendMessage("You don't have permission to use this command!");
+                    sender.sendMessage(lang.get(Message.CMD_NO_PERMISSION));
                     return true;
                 }
 
                 if (args[0].equalsIgnoreCase("refresh")) {
                     config.reloadItemShop();
-                    sender.sendMessage("Merchant Shop has been refreshed!");
+                    sender.sendMessage(lang.get(Message.CMD_REFRESH_OK));
                 } else {
                     config.reloadConfig();
-                    sender.sendMessage("Config has been reloaded!");
+                    sender.sendMessage(lang.get(Message.CMD_RELOAD_OK));
                 }
                 return true;
             }
 
-            sender.sendMessage("Unknown command. Use /merchant help for commands.");
+            sender.sendMessage(lang.get(Message.CMD_UNKNOWN));
             return true;
         }
 
-        sender.sendMessage("Invalid command usage. Use /merchant help for commands.");
+        sender.sendMessage(lang.get(Message.CMD_USAGE));
         return true;
     }
     @Override

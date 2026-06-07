@@ -20,7 +20,7 @@ public class TradeMenu implements InventoryHolder {
 
     public TradeMenu(ConfigManager config, int ClickedSlot) {
         this.langManager = config.getLangManager();
-        Component title = Component.text("Merchant Guild");
+        Component title = Component.text(langManager.get(Message.GUI_TITLE));
         this.inventory = Bukkit.createInventory(this, 45, title);
 
         this.itemdetail = config.getItem(ClickedSlot);

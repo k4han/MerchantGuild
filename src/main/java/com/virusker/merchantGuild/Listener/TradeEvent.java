@@ -72,7 +72,7 @@ public class TradeEvent implements Listener {
 
             // Check if the shop has sufficient capacity
             if (newShopAmount < 0) {
-                player.sendMessage("§cThe shop can't buy that many items!");
+                player.sendMessage(lang.get(Message.SHOP_CANT_BUY));
                 event.setCancelled(true);
                 return;
             }

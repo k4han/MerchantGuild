@@ -9,6 +9,7 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -22,10 +23,10 @@ public class ShopGui implements InventoryHolder  {
     public ShopGui(ConfigManager config) {
         this.config = config;
         int size = 5;
-        Component title = Component.text("Merchant Guild");
+        this.langManager = config.getLangManager();
+        Component title = Component.text(langManager.get(Message.GUI_TITLE));
         this.inventory = config.getPlugin().getServer().createInventory(this, size * 9, title);
         HashMap<Integer, ItemDetail> invItems = config.getShopItems();
-        this.langManager = config.getLangManager();
 
         setupButton();
         setupItems();
@@ -44,8 +45,8 @@ public class ShopGui implements InventoryHolder  {
         for (var entry : config.getShopItems().entrySet()) {
             ItemDetail itemDetail = entry.getValue();
 
-            // set lore for item
-            var meta = itemDetail.getItem().getItemMeta();
+            ItemStack displayItem = itemDetail.getItem().clone();
+            var meta = displayItem.getItemMeta();
             if (meta != null) {
                 Component space = Component.text(" ");
                 Component price = Component.text(langManager.get(Message.SELL_PRICE, itemDetail.getPrice()));
@@ -56,9 +57,9 @@ public class ShopGui implements InventoryHolder  {
                 lore.add(amount);
 
                 meta.lore(lore);
-                itemDetail.getItem().setItemMeta(meta);
+                displayItem.setItemMeta(meta);
             }
-            inventory.setItem(entry.getKey(), itemDetail.getItem());
+            inventory.setItem(entry.getKey(), displayItem);
         }
     }
 
