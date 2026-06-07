@@ -54,4 +54,6 @@ jobs:
           MODRINTH_PROJECT_ID: ${{ secrets.MODRINTH_PROJECT_ID }}
           MODRINTH_GAME_VERSIONS: ${{ vars.MODRINTH_GAME_VERSIONS || '1.21.1' }}
           MODRINTH_LOADERS: ${{ vars.MODRINTH_LOADERS || 'paper,purpur,folia' }}
-        run: ./gradlew clean build modrinth -PreleaseVersion="${{ steps.release-version.outputs.value }}"
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build modrinth -PreleaseVersion="${{ steps.release-version.outputs.value }}"
