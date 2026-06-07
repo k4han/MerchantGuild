@@ -51,8 +51,14 @@ items:
 ```
 
 ## Requirements
-- Vault
+- **Vault** (required dependency)
+- **An Economy plugin** (required) — Vault is only an API/broker layer and does not provide economy on its own. You must install a plugin that registers an Economy provider through Vault. Recommended options:
+  - [EssentialsX](https://essentialsx.net/) (free, most popular)
+  - CMI (paid, feature-rich)
+  - TheNewEconomy, XConomy, etc.
 - Proper permissions to use the plugin commands
+
+> Note: Installing Vault alone is **not** enough. Without an economy provider, MerchantGuild will be disabled with the error: `Disabled due to no Vault dependency found!`
 
 ## Installation
 1. Download the **MerchantGuild.jar** file.
