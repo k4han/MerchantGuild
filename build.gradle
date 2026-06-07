@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
+    id 'com.modrinth.minotaur'
 }
 
 group = 'com.virusker'
-version = '1.2'
+version = findProperty('releaseVersion') ?: '1.2'
 
 repositories {
     mavenCentral()
@@ -20,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.69-stable")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
 
@@ -28,7 +29,9 @@ dependencies {
 
 
 dependencies {
-    compileOnly("com.github.MilkBowl:VaultAPI:1.7")
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
+        exclude group: 'org.bukkit', module: 'bukkit'
+    }
 }
 
 
@@ -58,4 +61,15 @@ processResources {
 }
 kotlin {
     jvmToolchain(25)
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = System.getenv("MODRINTH_PROJECT_ID")
+    versionNumber = project.version.toString()
+    versionName = project.version.toString()
+    versionType = "release"
+    uploadFile = jar.archiveFile
+    gameVersions = (System.getenv("MODRINTH_GAME_VERSIONS") ?: "1.21.1").split(",") as List
+    loaders = (System.getenv("MODRINTH_LOADERS") ?: "paper,purpur,folia").split(",") as List
 }
